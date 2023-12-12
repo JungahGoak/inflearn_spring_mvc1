@@ -18,6 +18,9 @@ public class RequestParamServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //application/x-www-form-urlencoded 형식은
+        //앞서 GET에서 살펴본 쿼리 파라미터와 형식이 같음
+        //따라서 매서드 그대로 사용하면 됨 (서버에선 변화 X)
         System.out.println("[전체 파라미터 조회] - start");
         request.getParameterNames().asIterator()
                 .forEachRemaining(paramName -> System.out.println(paramName + "=" + request.getParameter(paramName)));
