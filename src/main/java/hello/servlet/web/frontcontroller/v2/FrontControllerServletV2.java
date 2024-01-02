@@ -1,5 +1,6 @@
 package hello.servlet.web.frontcontroller.v2;
 
+import hello.servlet.web.frontcontroller.MyView;
 import hello.servlet.web.frontcontroller.v2.controller.MemberFormControllerV2;
 import hello.servlet.web.frontcontroller.v2.controller.MemberListControllerV2;
 import hello.servlet.web.frontcontroller.v2.controller.MemberSaveControllerV2;
@@ -22,7 +23,7 @@ public class FrontControllerServletV2 extends HttpServlet {
     *RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
     *dispatcher.forward(request, response);
     */
-    // V2에서는 이 부분을 깔끔하게 만들어보자
+    // V2에서는 이 부분을 깔끔하게 만들어보
 
     private Map<String, ControllerV2> controllerMap = new HashMap<>();
 
@@ -44,6 +45,7 @@ public class FrontControllerServletV2 extends HttpServlet {
             return;
         }
 
-        controller.process(request, response);
+        MyView view = controller.process(request, response);
+        view.render(request, response);
     }
 }
