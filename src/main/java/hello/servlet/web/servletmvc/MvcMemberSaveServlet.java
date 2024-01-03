@@ -32,6 +32,5 @@ public class MvcMemberSaveServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
         dispatcher.forward(request, response);
 
-
     }
 }
